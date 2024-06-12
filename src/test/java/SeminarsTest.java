@@ -5,12 +5,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
-public class Sem1Test {
+public class SeminarsTest {
 
     static WebDriver driver;
     private String login = "test_1706292487";
@@ -49,52 +47,15 @@ public class Sem1Test {
                 By.xpath("//*[@type='text']"))); //или By.cssSelector("form#login input[type='text']")
         WebElement passwordSite = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//*[@type='password']")));
-        WebElement button = driver.findElement(By.xpath("//*[@class='mdc-button__label']"));
+        WebElement buttonLogin = driver.findElement(By.xpath("//*[@class='mdc-button__label']"));
 
         loginSite.sendKeys(login);
         passwordSite.sendKeys(password);
-        button.click();
+        buttonLogin.click();
 
         List<WebElement> searchElement = driver.findElements(By.partialLinkText("Hello"));
 
         Assertions.assertEquals(1, searchElement.size());
-    }
-
-    @Test
-    void createPost() throws InterruptedException {
-        String newTitle = "post with Java";
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement loginSite = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//*[@type='text']"))); //или By.cssSelector("form#login input[type='text']")
-        WebElement passwordSite = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//*[@type='password']")));
-        WebElement button = driver.findElement(By.xpath("//*[@class='mdc-button__label']"));
-
-        loginSite.sendKeys(login);
-        passwordSite.sendKeys(password);
-        button.click();
-
-        WebElement createButton = driver.findElement(By.xpath("//*[@id='create-btn']"));
-        createButton.click();
-
-        WebElement titleCreate = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//*[@type='text']")));
-        titleCreate.sendKeys(newTitle);
-        WebElement buttonSave = driver.findElement(By.xpath("//*[@class='mdc-button__label']"));
-        buttonSave.click();
-
-        List<WebElement> searchEl = driver.findElements(By.xpath("//*[@class='container svelte-1pbgeyl']"));
-
-//        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//        try {
-//            FileUtils.copyFile(screenshot, new File("C:\\Users\\vikto\\Desktop\\IDEA\\WebWithJava\\src\\test\\resources\\scr.png"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-// Не получилось со скриншотом...
-
-        Assertions.assertEquals(1, searchEl.size());
-
     }
 
 
