@@ -22,7 +22,7 @@ public class StudentTableRow {
         return root.findElement(By.xpath("./td[3]")).getText();
     }
 
-//    public void clickTrashIcon() {
+//    public void clickTrashIcon() { //ОШИБКА В МЕТОДЕ!!!
 //        root.findElement(By.xpath("./td/button[text()='delete']")).click();
 //        ((Wait<WebElement>) new FluentWait<>(root))
 //                .withTimeout(Duration.ofSeconds(30))
@@ -31,7 +31,7 @@ public class StudentTableRow {
 //                .until(root -> root.findElement(By.xpath("./td/button[text()='restore_from_trash']")));
 //    }
 //
-//    public void clickRestoreFromTrashIcon() {
+//    public void clickRestoreFromTrashIcon() { //ОШИБКА В МЕТОДЕ!!!
 //        root.findElement(By.xpath("./td/button[text()='restore_from_trash']")).click();
 //        ((Wait<WebElement>) new FluentWait<>(root))
 //                .withTimeout(Duration.ofSeconds(30))
